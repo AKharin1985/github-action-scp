@@ -9259,7 +9259,7 @@ function run() {
             console.log('123');
             try {
                 console.log('!!!');
-                ssh.dispose();
+                //ssh.dispose();
                 console.log('???');
             }
             catch (err) {
@@ -9267,8 +9267,6 @@ function run() {
                 console.log(err);
             }
             console.log('456');
-            ssh.end();
-            console.log('789');
         }
         catch (err) {
             console.log('Failed');
