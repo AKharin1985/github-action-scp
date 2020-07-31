@@ -9253,6 +9253,7 @@ function run() {
         const local = core.getInput('local');
         const remote = core.getInput('remote');
         try {
+            console.log('connect...');
             const ssh = yield connect(host, username, port, privateKey, password, passphrase, tryKeyboard);
             yield scp(ssh, local, remote, concurrency, verbose, recursive);
             console.log('123');
@@ -9266,8 +9267,11 @@ function run() {
             console.log('456');
         }
         catch (err) {
+            console.log('Failed');
             core.setFailed(err);
+            console.log(err);
         }
+        console.log('end...');
     });
 }
 function connect(host = 'localhost', username, port = 22, privateKey, password, passphrase, tryKeyboard) {
