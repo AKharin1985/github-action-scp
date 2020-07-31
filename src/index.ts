@@ -29,7 +29,12 @@ async function run() {
     );
     await scp(ssh, local, remote, concurrency, verbose, recursive);
 
-    ssh.dispose();
+    try {
+      ssh.dispose();
+    } catch (err) {
+      console.log('Error in ssh.dispose()');
+      console.log(err);
+    }
   } catch (err) {
     core.setFailed(err);
   }
