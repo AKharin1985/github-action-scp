@@ -9255,6 +9255,7 @@ function run() {
         try {
             const ssh = yield connect(host, username, port, privateKey, password, passphrase, tryKeyboard);
             yield scp(ssh, local, remote, concurrency, verbose, recursive);
+            console.log('123');
             try {
                 ssh.dispose();
             }
@@ -9262,6 +9263,7 @@ function run() {
                 console.log('Error in ssh.dispose()');
                 console.log(err);
             }
+            console.log('456');
         }
         catch (err) {
             core.setFailed(err);
