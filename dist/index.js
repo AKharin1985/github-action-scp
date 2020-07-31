@@ -9258,7 +9258,9 @@ function run() {
             yield scp(ssh, local, remote, concurrency, verbose, recursive);
             console.log('123');
             try {
+                console.log('!!!');
                 ssh.dispose();
+                console.log('???');
             }
             catch (err) {
                 console.log('Error in ssh.dispose()');
